@@ -1,0 +1,33 @@
+/*
+Exemplos com soma média e etc
+*/
+
+
+#include <stdio.h>
+
+int main(){
+
+    int a, b, c;
+    int *pa, *pb, *pc;
+
+    pa = &a;
+    pb = &b;
+    pc = &c;
+    
+    puts("Digite o valor de a:");
+    scanf("%d", pa);
+    puts("Digite o valor de b:");
+    scanf("%d", pb);
+    
+    *pc = *pa + *pb;
+    printf("Soma de pa + pb: %d\n", *pc);
+    
+    float media = (*pa + *pb)/2.0;
+    
+    printf("Média entre pa + pb: %.2f\n", media);
+    printf("Valor de pa: %d\n", *pa);
+    printf("Valor de pb: %d\n", *pb);
+    printf("Valor de pc: %d\n", *pc);
+
+    return 0;
+}
