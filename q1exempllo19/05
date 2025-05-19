@@ -1,0 +1,24 @@
+/*
+Questão 1 de ponteiros que o daniel indicou pra fazer 
+*/
+
+#include <stdio.h>
+
+int main(){
+
+int a, b, c;
+int *pa, *pb, *pc;
+
+pa = &a, pb = &b, pc = &c;
+
+printf("Digite um valor para a: \n");
+scanf("%d", pa);
+printf("Digite um valor para b: \n");
+scanf("%d", pb);
+
+*pc = *pa + *pb;
+
+printf("Soma de a + b = %d", pc);
+
+return 0;
+}
