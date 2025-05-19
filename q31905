@@ -1,0 +1,54 @@
+/*
+programa que rcebe valor de inteirros v e um inteiro x, ver se o endereço de x ta em v
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 10
+#define MX 10
+
+int main() {
+
+    srand(time(NULL));
+
+    int v[TAM], x;
+    int *pv, *px;
+    pv = v;
+    px = &x;
+
+    printf("Digite o valor de x: ");
+    scanf("%d", &x);
+    printf("Endereço de x: %p\n", px);
+
+    // Preencher o vetor
+    for (int k = 0; k < TAM; k++) {
+        *(pv + k) = rand() % MX;
+    }
+
+    // Verificaro endereço de x 
+    int encontrado = 0;  // Flag para verificar se o endereço foi encontrado
+    for (int k = 0; k < TAM; k++) {
+        if (px == (pv + k)) {
+            encontrado = 1;
+            break;  // Se o endereço foi encontrado, podemos parar a busca
+        }
+    }
+
+    if (encontrado) {
+        printf("O endereço de x está presente no vetor.\n");
+    } else {
+        printf("O endereço de x não está presente no vetor.\n");
+    }
+
+    // Imprimir 
+    printf("Vetor preenchido: ");
+    for (int k = 0; k < TAM; k++) {
+        printf("%d ", *(pv + k));
+        printf("%p \n", (pv + k));
+    }
+    printf("\n");
+
+    return 0;
+}
