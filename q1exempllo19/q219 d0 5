@@ -1,24 +1,39 @@
 /*
-Questão 1 de ponteiros que o daniel indicou pra fazer 
+ler um vetor de inteiros e apresentar os números pares
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 10
+#define MX 10
 
 int main(){
 
-int a, b, c;
-int *pa, *pb, *pc;
+srand(time(NULL));
 
-pa = &a, pb = &b, pc = &c;
+int v[TAM];
+int *pv;
+pv = v;
 
-printf("Digite um valor para a: \n");
-scanf("%d", pa);
-printf("Digite um valor para b: \n");
-scanf("%d", pb);
+//preencher o vetor
+for(int k = 0; k<TAM; k++){
+    *(pv+k) = rand()%MX;
+}
 
-*pc = *pa + *pb;
+for(int k =0; k<TAM; k++){
+    printf("%d ", *(pv+k));
+}
 
-printf("Soma de a + b = %d", pc);
+printf("\n");
+
+//numeros pares
+for(int k = 0; k<TAM; k++){
+    if(*(pv + k)% 2 == 0){
+        printf("%d", *(pv+k));
+    }
+}
 
 return 0;
 }
