@@ -1,0 +1,61 @@
+/*
+ler um vetor de inteiros e apresentar os números pares
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 10
+#define MX 100
+
+void preenchervetor(int *);
+void imprimirvetor(int *);
+
+int main(){
+
+srand(time(NULL));
+
+int v[TAM], x;
+int *px = &x;
+
+puts("Digite o valor de x: ")
+scanf("%d", px);
+
+//preencher
+preenchervetor(v);
+
+//imprimir o vetor
+imprimirvetor(v);
+
+printf("\n");
+
+//numeros pares
+imprimirpares(v);
+
+return 0;
+}
+
+void preenchervetor(int *p){
+    for(int k =0; k<TAM; k++){
+        *(p+k) = rand()%MX;
+    }
+}
+
+void imprimirvetor(int *p){
+    for(int k =0; k<TAM; k++){
+        printf("%d ", *(p+k));
+    }
+}
+
+void buscarvalor(int *pv, int x){
+    char localizado = 0;
+    for(int k = 0; k<TAM; k++){
+        if(x == *(pv + k)){
+            print("Localizado no endereço [%p]\n", pv+k);
+            localizado = 1;
+            break;
+        }
+    }
+    if(!localizado)printf("%d não existe no vetor", x);
+}
