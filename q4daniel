@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+#define TAM 50
+
+void buscarcharstr(char*p, char x);
+void imprimirendstr(char *p);
+
+int main(){
+
+    char str[TAM];
+    char ch;
+
+    puts("Digite a string");
+    fgets(str, TAM, stdin);
+
+    puts("Digite uma letra");
+    ch = getchar();
+
+    imprimirendstr(str);
+    buscarcharstr(str, ch);
+
+return 0;
+}
+
+void imprimirendstr(char *p){
+int k = 0;
+while(*(p+k) != '\0'){
+    printf("[%p] %c\n", p+k, *(p+k));
+    k++;
+}
+}
+
+void buscarcharstr(char*p, char x){ 
+    int k = 0;
+    int localizado = 0;
+    while(*(p+k) != '\0'){
+        if(x == *(p+k)){
+            printf("%p\n", p+k);
+            localizado = 1;
+        }
+        k++;
+    }
+    if(localizado == 0){
+        printf("String não encontrada");
+    }
+}
