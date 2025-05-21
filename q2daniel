@@ -1,0 +1,52 @@
+/*
+ler um vetor de inteiros e apresentar os números pares
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 10
+#define MX 100
+
+void preenchervetor(int *);
+void imprimirvetor(int *);
+void imprimirpares(int *);
+
+int main(){
+
+srand(time(NULL));
+
+int v[TAM];
+
+//preencher
+preenchervetor(v);
+
+//imprimir o vetor
+imprimirvetor(v);
+
+printf("\n");
+
+//numeros pares
+imprimirpares(v);
+
+return 0;
+}
+
+void preenchervetor(int *p){
+    for(int k =0; k<TAM; k++){
+        *(p+k) = rand()%MX;
+    }
+}
+
+void imprimirvetor(int *p){
+    for(int k =0; k<TAM; k++){
+        printf("%d ", *(p+k));
+    }
+}
+
+void imprimirpares(int *p){
+    if(*(v + k)% 2 == 0){
+        printf("%d ", *(p+k));
+    }
+}
