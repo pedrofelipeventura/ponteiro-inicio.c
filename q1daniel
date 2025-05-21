@@ -1,0 +1,38 @@
+/*
+Questão 1 de ponteiros que o daniel indicou pra fazer 
+*/
+
+int somar(int x, int y);
+void imprimir(int x);
+
+#include <stdio.h>
+
+int main(){
+
+int a, b, c;
+int *pa, *pb, *pc;
+
+pa = &a, pb = &b, pc = &c;
+
+printf("Digite um valor para a: \n");
+scanf("%d", pa);
+printf("Digite um valor para b: \n");
+scanf("%d", pb);
+
+//*pc = *pa + *pb;
+*pc = somar(*pa, *pb);
+
+//printf("Soma de a + b = %d", *pc);
+imprimir(*pc);
+
+return 0;
+}
+
+int somar(int x, int y){
+    int r = x+y;
+    return r;
+}
+
+void imprimir(int x){
+    printf("Resultado: %d\n", x);
+}
